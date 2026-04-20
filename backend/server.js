@@ -77,6 +77,7 @@ function calculateScore(a) {
 }
 
 // API
+// API
 app.get("/api/areas", (req, res) => {
   const result = areas.map(a => ({
     ...a,
@@ -85,4 +86,9 @@ app.get("/api/areas", (req, res) => {
   res.json(result);
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+// ✅ FIXED FOR DEPLOY
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
